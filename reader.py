@@ -13,6 +13,7 @@ LEADING_DATA = 'UID: '
 
 port_attempts = [SERIAL_PORT_BASE + str(x) for x in xrange(MAX_PORT_ATTEMPTS)]
 
+s = None
 for port in port_attempts:
     if os.path.exists(port):
         try:
