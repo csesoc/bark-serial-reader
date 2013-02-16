@@ -28,8 +28,13 @@ if not s:
     sys.exit()
 
 last_uid = ''
-while (True):
-    line = s.readline().strip()
-    if NULL_READ not in line and line != last_uid:
-        print line[len(LEADING_DATA):]
-        last_uid = line
+try:
+    while (True):
+        line = s.readline().strip()
+        if NULL_READ not in line and line != last_uid:
+            print line[len(LEADING_DATA):]
+            last_uid = line
+except KeyboardInterrupt:
+    # Shut down gracefully
+    s.close()
+    sys.exit()
