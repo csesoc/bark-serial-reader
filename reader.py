@@ -32,7 +32,7 @@ last_uid = ''
 try:
     while (True):
         line = s.readline().strip()
-        if NULL_READ not in line and line != last_uid:
+        if NULL_READ not in line and LEADING_DATA in line and line != last_uid:
             print line[len(LEADING_DATA):]
             last_uid = line
 except KeyboardInterrupt:
